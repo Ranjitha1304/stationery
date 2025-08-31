@@ -1,0 +1,355 @@
+[
+  {
+    "model": "mainapp.product",
+    "pk": 10,
+    "fields": {
+      "category": 2,
+      "name": "A4 Lever Arch File",
+      "image": "products/f1.png",
+      "price_single": "120.00",
+      "price_pack10": "1100.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Heavy-duty lever arch for large documents",
+      "description": "A4 lever arch file built to handle big filing jobs. Reinforced spine and strong metal clip give reliable long-term performance. The finger hole makes retrieval from shelves easy. Label holder on the spine helps with quick identification. Smooth opening mechanism ensures pages are not damaged. Ideal for offices, archives and long-term storage.",
+      "key_features": "Reinforced spine\nStrong metal lever clip\nFinger hole for easy pull-out\nLabel holder on spine\nDurable cardboard cover\nHolds up to 500 sheets"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 11,
+    "fields": {
+      "category": 2,
+      "name": "Clear Plastic Document Folder (Pack)",
+      "image": "products/f2.png",
+      "price_single": "85.00",
+      "price_pack10": "760.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Transparent folders to protect and present documents",
+      "description": "These clear plastic folders protect documents while keeping contents visible. They are lightweight and water-resistant, making them practical for everyday use. The smooth finish prevents snagging or tearing. Keeps certificates and reports neat for presentations. Suitable for students and professionals alike. Economical pack for classrooms and offices.",
+      "key_features": "Transparent PP material\nWater resistant\nSmooth edges\nPack of assorted colors\nLightweight and flexible\nReusable"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 12,
+    "fields": {
+      "category": 2,
+      "name": "Expandable Accordion File",
+      "image": "products/f3.png",
+      "price_single": "260.00",
+      "price_pack10": null,
+      "price_3plus": "720.00",
+      "rating": 5,
+      "one_line_heading": "Multi-pocket expanded organizer for receipts & bills",
+      "description": "Accordion-style expandable file with multiple pockets for categorizing documents. Each pocket is clearly labelled, making retrieval effortless. The strong gusseted design expands to accommodate bulkier papers. Elastic strap closure keeps contents secure while on the move. Comfortable handle allows convenient carrying between meetings. A practical solution for home and office filing.",
+      "key_features": "Multiple numbered pockets\nDurable gusseted base\nElastic closure strap\nCarry handle\nLabel tabs included\nHolds receipts and bills"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 13,
+    "fields": {
+      "category": 2,
+      "name": "Clip Folder with Transparent Cover",
+      "image": "products/f4.png",
+      "price_single": "70.00",
+      "price_pack10": "650.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Clip-style folder for quick document access",
+      "description": "Clip folder provides fast access to documents without punching holes. The transparent front shows the cover page clearly, ideal for presentations. Strong metal clip secures up to 60 sheets comfortably. Lightweight design fits easily into briefcases and backpacks. Durable construction for frequent use. Great for reports, project submissions and class handouts.",
+      "key_features": "Transparent front cover\nStrong metal clip\nNo punching required\nHolds ~60 sheets\nReusable and sturdy\nPortable design"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 14,
+    "fields": {
+      "category": 2,
+      "name": "Ring Binder A4 (2-Ring)",
+      "image": "products/f5.png",
+      "price_single": "140.00",
+      "price_pack10": null,
+      "price_3plus": "380.00",
+      "rating": 5,
+      "one_line_heading": "Classic 2-ring binder for neat organization",
+      "description": "Classic 2-ring binder built for durability and frequent handling. The internal rings close tightly to prevent page slippage. Strong covers maintain shape even when full. Spine label slot for quick indexing. Smooth ring operation for easy page addition or removal. An office essential for organized record keeping.",
+      "key_features": "Tough outer cover\nSecure ring locking\nLabel slot on spine\nHolds punched A4 sheets\nLong-lasting hardware\nSmooth ring action"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 15,
+    "fields": {
+      "category": 2,
+      "name": "Document Storage Box",
+      "image": "products/f6.png",
+      "price_single": "220.00",
+      "price_pack10": "2000.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Stackable storage box for files and archives",
+      "description": "Large capacity document storage box for archiving and transporting files. Constructed from sturdy cardboard with reinforced corners. Snap-on lid keeps dust and moisture away. Built-in handles allow easier lifting and movement. Label area on the side for identification. Ideal for long-term document storage and office moves.",
+      "key_features": "Strong cardboard build\nSnap-on lid\nStackable design\nSide label area\nReinforced corners\nHolds many documents"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 16,
+    "fields": {
+      "category": 2,
+      "name": "Report File with Slide Clip",
+      "image": "products/f7.png",
+      "price_single": "55.00",
+      "price_pack10": "480.00",
+      "price_3plus": null,
+      "rating": 3,
+      "one_line_heading": "Simple report file for presentations",
+      "description": "Lightweight report file with a slide clip to hold reports together neatly. Clear front pocket displays a cover sheet for quick identification. Economical option for students and offices for short-term reports. Smooth inner surface reduces page wear. Compact and stackable for easy storage.",
+      "key_features": "Slide clip fastening\nClear front pocket\nLightweight\nEconomical\nGood for short-term use\nEasy to store"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 17,
+    "fields": {
+      "category": 2,
+      "name": "Plastic Button Folder",
+      "image": "products/f8.png",
+      "price_single": "40.00",
+      "price_pack10": null,
+      "price_3plus": "110.00",
+      "rating": 4,
+      "one_line_heading": "Affordable button-closure folder for everyday use",
+      "description": "Plastic button folder with secure snap button closure. Water-resistant and flexible for easy insertion of documents. Practical for quick sorting and carrying small sets of papers. Comfortable to carry and pocket-friendly. A budget-friendly, functional choice for regular users.",
+      "key_features": "Button snap closure\nWater-resistant\nFlexible plastic\nPortable and light\nAffordable\nGood for small documents"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 18,
+    "fields": {
+      "category": 2,
+      "name": "Certificate Holder File",
+      "image": "products/f9.png",
+      "price_single": "190.00",
+      "price_pack10": null,
+      "price_3plus": "170.00",
+      "rating": 5,
+      "one_line_heading": "Premium certificate holder with protective cover",
+      "description": "Premium certificate holder designed to protect important documents and diplomas. Leatherette finish offers a professional look. Inside pockets keep certificates flat and secure. Excellent gift or archival storage option. Soft interior lining prevents scratches. Built to preserve valuable paperwork for years.",
+      "key_features": "Leatherette finish\nFlat certificate pockets\nSoft interior lining\nSecure closure\nProfessional appearance\nDurable build"
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 19,
+    "fields": {
+      "product": 10,
+      "title": "Very sturdy organizer",
+      "rating": 5,
+      "content": "The expanding compartments help me separate receipts by month. Strong material and easy to carry."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 20,
+    "fields": {
+      "product": 10,
+      "title": "Exactly what I needed",
+      "rating": 4,
+      "content": "Lots of pockets and clear tabs. A bit bulky but works well for home accounting."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 21,
+    "fields": {
+      "product": 10,
+      "title": "Good quality",
+      "rating": 4,
+      "content": "Feels strong and durable, perfect for organising documents."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 22,
+    "fields": {
+      "product": 11,
+      "title": "Clear and practical",
+      "rating": 4,
+      "content": "These folders are handy for keeping loose papers visible and protected."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 23,
+    "fields": {
+      "product": 11,
+      "title": "Good pack",
+      "rating": 4,
+      "content": "Worth the price for classroom use. Transparent and light."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 24,
+    "fields": {
+      "product": 12,
+      "title": "Excellent organizer",
+      "rating": 5,
+      "content": "The pockets and elastic strap keep everything neat. Highly recommended."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 25,
+    "fields": {
+      "product": 12,
+      "title": "Very useful",
+      "rating": 5,
+      "content": "Helps me sort bills and receipts, good build too."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 26,
+    "fields": {
+      "product": 12,
+      "title": "Good capacity",
+      "rating": 4,
+      "content": "Spacious and robust enough for monthly paperwork."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 27,
+    "fields": {
+      "product": 13,
+      "title": "Practical clip file",
+      "rating": 4,
+      "content": "Great for quick presentations. The transparent front is useful."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 28,
+    "fields": {
+      "product": 13,
+      "title": "Holds papers well",
+      "rating": 4,
+      "content": "Clip is strong and the cover protects the document."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 29,
+    "fields": {
+      "product": 14,
+      "title": "Very good binder",
+      "rating": 5,
+      "content": "Sturdy rings and nice cover. Useful for office filing."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 30,
+    "fields": {
+      "product": 14,
+      "title": "Great value",
+      "rating": 4,
+      "content": "Keeps sheets safe and organized."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 31,
+    "fields": {
+      "product": 15,
+      "title": "Perfect storage box",
+      "rating": 4,
+      "content": "Good for moving files around and stacking."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 32,
+    "fields": {
+      "product": 15,
+      "title": "Solid build",
+      "rating": 4,
+      "content": "Durable and easy to store."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 33,
+    "fields": {
+      "product": 16,
+      "title": "Good report file",
+      "rating": 3,
+      "content": "Works fine for school reports, nothing special."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 34,
+    "fields": {
+      "product": 16,
+      "title": "Affordable",
+      "rating": 4,
+      "content": "Nice for quick use, cheap and serviceable."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 35,
+    "fields": {
+      "product": 17,
+      "title": "Good snap closure",
+      "rating": 4,
+      "content": "Keeps documents safe and dry."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 36,
+    "fields": {
+      "product": 17,
+      "title": "Compact and handy",
+      "rating": 4,
+      "content": "Perfect for small sets of papers and receipts."
+    }
+  },
+
+  {
+    "model": "mainapp.review",
+    "pk": 37,
+    "fields": {
+      "product": 18,
+      "title": "Premium look",
+      "rating": 5,
+      "content": "Great for storing certificates. Looks and feels premium."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 38,
+    "fields": {
+      "product": 18,
+      "title": "Keeps them safe",
+      "rating": 4,
+      "content": "Holds certificates flat and protected."
+    }
+  }
+]

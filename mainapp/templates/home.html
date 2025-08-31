@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<!-- Banner Section -->
+{% if banner %}
+<div class="banner">
+    <img src="{{ banner.image.url }}" alt="Banner">
+</div>
+{% endif %}
+
+<!-- Essential Stationery Section -->
+<section class="stationery-section">
+    <h2>Essential Stationery, Exceptional Supply</h2>
+    <p>From pens to paper, we deliver quality tools that power classrooms, offices, and creativity.</p>
+    <p>Bulk pricing, reliable service, and everything your workspace needs—right at your fingertips.</p>
+
+    <div class="stationery-images">
+        {% for img in stationery_images %}
+        <img src="{{ img.image.url }}" alt="Stationery">
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Writing Essentials / Paper / Office Tools -->
+<section class="content-section">
+    <div class="left-content">
+        <h3>1. Writing Essentials</h3>
+        <p>From everyday ballpoint pens to premium gel pens and highlighters, our writing tools ensure clarity, comfort, and reliability. Perfect for classrooms, offices, or creative spaces, these essentials are built to support productivity and expression at every level.</p>
+
+        <h3>2. Paper Products</h3>
+        <p>Whether it’s notebooks, notepads, printer paper, or sticky notes, our paper supplies cover every need. Designed for durability and smooth performance, these products are ideal for note-taking, organizing, printing, or planning in any setting.</p>
+
+        <h3>3. Classroom & Office Tools</h3>
+        <p>Keep workspaces equipped and efficient with rulers, staplers, scissors, erasers, and more. These tools bring order and precision to daily tasks, making them indispensable in both educational and professional environments.</p>
+    </div>
+    <div class="right-image">
+        {% if right_section_image %}
+        <img src="{{ right_section_image.image.url }}" alt="Right Section">
+        {% endif %}
+    </div>
+</section>
+
+<!-- Trending Section -->
+<section class="trending-section">
+    <h2>Trending</h2>
+    <div class="trending-images">
+        {% for timg in trending_images %}
+        <img src="{{ timg.image.url }}" alt="Trending">
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+{% if testimonial %}
+<section class="testimonial-section">
+    <h2>{{ testimonial.heading }}</h2>
+    <p>{{ testimonial.subtitle }}</p>
+
+    <div class="testimonial-content">
+        <img src="{{ testimonial.profile_image.url }}" alt="Customer" class="testimonial-img">
+        <blockquote>
+            {{ testimonial.text }}
+        </blockquote>
+        <h4>{{ testimonial.customer_name }}</h4>
+        <p>{{ testimonial.designation }}</p>
+    </div>
+</section>
+
+
+
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+    <h2 class="team-title">The Team</h2>
+    <p class="team-desc">
+        Our team is a dedicated group of professionals passionate about delivering quality stationery in bulk with efficiency and care. 
+        With expertise in sourcing, logistics, and customer service, we ensure every order meets the highest standards.
+    </p>
+
+    <div class="team-grid">
+        {% for member in team_members %}
+        <div class="team-card">
+            <img src="{{ member.image.url }}" alt="{{ member.name }}" class="team-img">
+            <h3 class="team-name">{{ member.name }}</h3>
+            <p class="team-role">{{ member.designation }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endif %}
+
+{% endblock %}

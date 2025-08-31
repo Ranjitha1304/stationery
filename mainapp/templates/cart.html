@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+<div class="cart-page">
+  <div class="cart-box">
+    <div class="cart-table-head">
+      <div class="col product-col">Product</div>
+      <div class="col qty-col">Quantity</div>
+      <div class="col unit-col">Unit Price</div>
+      <div class="col total-col">Total Price</div>
+    </div>
+
+    {% for item in items %}
+    <div class="cart-row" data-item-id="{{ item.id }}">
+      <div class="col product-col">
+        <img class="p-thumb" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"><br>
+        <div class="p-meta">
+          <div class="p-name">{{ item.product.name }}</div>
+          <div class="p-price">Rs.{{ item.product.price_single|floatformat:"-2" }}</div>
+          {% if item.product.price_pack10 %}
+            <div class="p-offer">Buy 10 or more @ Rs.{{ item.product.price_pack10|floatformat:"-2" }}</div>
+          {% elif item.product.price_3plus %}
+            <div class="p-offer">Buy 3 or more @ Rs.{{ item.product.price_3plus|floatformat:"-2" }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col qty-col">
+        <div class="qty-controls">
+          <button class="qty-btn inc" title="Increase">+</button>
+          <button class="qty-btn dec" title="Decrease">-</button>
+        </div>
+        <input class="qty-input" type="text" value="{{ item.quantity }}" data-item-id="{{ item.id }}">
+      </div>
+
+      <div class="col unit-col">
+        Rs. <span class="unit-price">{{ item.unit_price|floatformat:"-2" }}</span>
+      </div>
+
+      <div class="col total-col">
+        Rs. <span class="item-total">{{ item.total_price|floatformat:"-2" }}</span>
+        <button class="remove-item" data-item-id="{{ item.id }}">Remove</button>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="cart-summary">
+    <div class="summary-row">
+      <div>Subtotal</div>
+      <div class="summary-amount">Rs.<span id="subtotal">{{ cart.subtotal|floatformat:"-2" }}</span></div>
+    </div>
+    <div class="summary-row total-row">
+      <div>Total</div>
+      <div class="summary-amount">Rs.<span id="total">{{ cart.subtotal|floatformat:"-2" }}</span></div>
+    </div>
+
+    <a href="{% url 'checkout' %}" class="btn-proceed">Proceed to Checkout</a>
+  </div>
+</div>
+
+<script>
+  // CSRF helper for fetch
+  function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
+  // attach handlers
+  document.querySelectorAll('.cart-row').forEach(row => {
+    const itemId = row.dataset.itemId;
+    const incBtn = row.querySelector('.qty-btn.inc');
+    const decBtn = row.querySelector('.qty-btn.dec');
+    const qtyInput = row.querySelector('.qty-input');
+    const itemTotalEl = row.querySelector('.item-total');
+
+    function updateServer(action, qty) {
+      const data = new FormData();
+      data.append('item_id', itemId);
+      if (action) data.append('action', action);
+      if (qty !== undefined) data.append('quantity', qty);
+
+      fetch("{% url 'update_cart' %}", {
+        method: "POST",
+        headers: {'X-CSRFToken': csrftoken},
+        body: data
+      }).then(r => r.json()).then(resp => {
+        if (resp.success) {
+          itemTotalEl.textContent = resp.item_total.toFixed(2);
+          document.getElementById('subtotal').textContent = resp.subtotal.toFixed(2);
+          document.getElementById('total').textContent = resp.subtotal.toFixed(2);
+          qtyInput.value = resp.quantity;
+        }
+      });
+    }
+
+    incBtn.addEventListener('click', () => updateServer('inc'));
+    decBtn.addEventListener('click', () => updateServer('dec'));
+    qtyInput.addEventListener('change', () => {
+      const q = parseInt(qtyInput.value) || 1;
+      qtyInput.value = q;
+      updateServer(null, q);
+    });
+
+    // remove button
+    const removeBtn = row.querySelector('.remove-item');
+    removeBtn && removeBtn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const data = new FormData();
+      data.append('item_id', itemId);
+      fetch("{% url 'remove_cart_item' %}", {
+        method: "POST",
+        headers: {'X-CSRFToken': csrftoken},
+        body: data
+      }).then(r => r.json()).then(resp => {
+        if (resp.success) {
+          row.remove();
+          document.getElementById('subtotal').textContent = resp.subtotal.toFixed(2);
+          document.getElementById('total').textContent = resp.subtotal.toFixed(2);
+        }
+      });
+    });
+  });
+</script>
+
+{% endblock %}

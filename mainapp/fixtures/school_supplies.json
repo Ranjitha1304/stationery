@@ -1,0 +1,307 @@
+[
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Geometry Box",
+      "image": "products/s1.png",
+      "price_single": "120.00",
+      "price_pack10": "1100.00",
+      "price_3plus": null,
+      "rating": 5,
+      "one_line_heading": "Complete geometry box with all essentials",
+      "description": "A compact geometry box containing compass, protractor, scale, and triangle. Ideal for students in school or college.",
+      "key_features": "Compass, Protractor, Scale, Triangle\nCompact design\nDurable materials\nPortable\nIdeal for school\nComplete set"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 1,
+      "title": "Very handy",
+      "rating": 5,
+      "content": "All geometry tools in one box. Great for school."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 1,
+      "title": "Durable",
+      "rating": 4,
+      "content": "Tools are sturdy and fit well in the box."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "School Backpack",
+      "image": "products/s2.png",
+      "price_single": "800.00",
+      "price_pack10": null,
+      "price_3plus": "2200.00",
+      "rating": 5,
+      "one_line_heading": "Durable and spacious backpack",
+      "description": "A high-quality backpack with multiple compartments. Comfortable padded straps. Ideal for carrying books, stationery, and laptops.",
+      "key_features": "Multiple compartments\nPadded straps\nDurable material\nLightweight\nSpacious\nStylish design"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 2,
+      "title": "Very comfortable",
+      "rating": 5,
+      "content": "Straps are padded and easy on shoulders."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 2,
+      "title": "Spacious",
+      "rating": 4,
+      "content": "Lots of space for books and stationery."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Lunch Box Set",
+      "image": "products/s3.png",
+      "price_single": "250.00",
+      "price_pack10": null,
+      "price_3plus": "700.00",
+      "rating": 4,
+      "one_line_heading": "Set of 2 lunch boxes with compartments",
+      "description": "Durable and food-safe lunch boxes. Easy to clean and carry. Perfect for school or picnics.",
+      "key_features": "Set of 2 lunch boxes\nCompartments included\nFood-safe material\nEasy to clean\nPortable\nDurable"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 3,
+      "title": "Good quality",
+      "rating": 4,
+      "content": "Keeps food fresh and is easy to carry."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 3,
+      "title": "Convenient",
+      "rating": 5,
+      "content": "Perfect size for school lunches."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Water Bottle",
+      "image": "products/s4.png",
+      "price_single": "150.00",
+      "price_pack10": null,
+      "price_3plus": "400.00",
+      "rating": 4,
+      "one_line_heading": "Durable BPA-free water bottle",
+      "description": "500ml water bottle made of BPA-free material. Leak-proof and lightweight. Ideal for school or outdoor activities.",
+      "key_features": "500ml capacity\nBPA-free\nLeak-proof\nLightweight\nDurable\nPortable"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 4,
+      "title": "Leak-proof",
+      "rating": 5,
+      "content": "No leaks even when carried in a bag."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 4,
+      "title": "Good size",
+      "rating": 4,
+      "content": "Perfect capacity for school or sports."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Colored Pencil Set",
+      "image": "products/s5.png",
+      "price_single": "200.00",
+      "price_pack10": null,
+      "price_3plus": "500.00",
+      "rating": 5,
+      "one_line_heading": "Set of 12 vibrant colored pencils",
+      "description": "High-quality colored pencils for drawing and coloring. Smooth application and bright colors. Ideal for school art projects.",
+      "key_features": "12 pencils\nVibrant colors\nSmooth application\nDurable\nIdeal for school\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 5,
+      "title": "Very bright",
+      "rating": 5,
+      "content": "Colors are vivid and pencils are easy to use."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 5,
+      "title": "Good quality",
+      "rating": 4,
+      "content": "Pencils don’t break easily and write smoothly."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Eraser & Sharpener Set",
+      "image": "products/s6.png",
+      "price_single": "50.00",
+      "price_pack10": null,
+      "price_3plus": "120.00",
+      "rating": 4,
+      "one_line_heading": "Compact eraser and sharpener set",
+      "description": "Durable eraser and sharpener set for school use. Easy to carry in pencil boxes.",
+      "key_features": "Eraser included\nSharpener included\nCompact size\nDurable\nPortable\nIdeal for school"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 6,
+      "title": "Works well",
+      "rating": 4,
+      "content": "Eraser cleans nicely and sharpener is effective."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 6,
+      "title": "Compact",
+      "rating": 5,
+      "content": "Easy to carry in my pencil box."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Notebook Pack",
+      "image": "products/s7.png",
+      "price_single": "300.00",
+      "price_pack10": "2800.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Set of 3 notebooks for school",
+      "description": "Three notebooks with 100 pages each, ruled paper. Ideal for students to keep subjects organized.",
+      "key_features": "3 notebooks\n100 pages each\nRuled paper\nDurable cover\nPortable\nIdeal for school"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 7,
+      "title": "Good set",
+      "rating": 4,
+      "content": "Perfect for keeping notes organized."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 7,
+      "title": "Affordable",
+      "rating": 4,
+      "content": "Nice quality at reasonable price."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Crayons Pack",
+      "image": "products/s8.png",
+      "price_single": "100.00",
+      "price_pack10": null,
+      "price_3plus": "250.00",
+      "rating": 5,
+      "one_line_heading": "Set of 24 crayons for drawing and coloring",
+      "description": "Bright, smooth crayons for kids and school projects. Non-toxic and safe for children.",
+      "key_features": "24 crayons\nBright colors\nSmooth application\nNon-toxic\nSafe for kids\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 8,
+      "title": "Very colorful",
+      "rating": 5,
+      "content": "Colors are bright and easy to apply."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 8,
+      "title": "Good for kids",
+      "rating": 5,
+      "content": "Safe and fun to use for school projects."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 5,
+      "name": "Stapler for School",
+      "image": "products/s9.png",
+      "price_single": "80.00",
+      "price_pack10": null,
+      "price_3plus": "200.00",
+      "rating": 4,
+      "one_line_heading": "Compact stapler suitable for students",
+      "description": "Lightweight stapler with strong stapling power. Ideal for notebooks and school papers.",
+      "key_features": "Compact size\nStrong stapling\nLightweight\nDurable\nSafe for students\nEasy to use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 9,
+      "title": "Good stapler",
+      "rating": 4,
+      "content": "Staples papers efficiently, easy to use."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 9,
+      "title": "Compact",
+      "rating": 5,
+      "content": "Fits nicely in pencil box."
+    }
+  }
+]

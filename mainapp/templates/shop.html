@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+
+
+<div class="shop-wrap">
+
+  <!-- Banner (from selected category) -->
+  <div class="shop-banner">
+    <img src="{{ selected_category.banner.url }}" alt="{{ selected_category.name }}">
+  </div>
+<h1 class="shophead">Where Ideas Begin - Shop Smart, Stay Sharp!</h1>
+  <!-- Centered Category Heading -->
+  <h2 class="shop-heading">{{ selected_category.name }}</h2>
+
+  <div class="shop-body">
+    <!-- LEFT: Sidebar -->
+    <aside class="shop-sidebar">
+              <div class="card-head">
+          <span class="toggle-icon">☰</span>
+          <span class="card-title">Categories</span>
+        </div>
+
+      <!-- Categories Card -->
+      <div class="card blue-card">
+        <h1>Categories</h1>
+        <ul class="cat-list">
+          {% for cat in categories %}
+            <li>
+              <a
+                class="cat-link {% if cat.id == selected_category.id %}active{% endif %}"
+                href="{% url 'shop_by_category' cat.slug %}">
+                {{ cat.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Filter Card -->
+      <div class="card blue-card">
+        <div class="card-head no-icon">
+          <span class="card-title">Filter by Price</span>
+        </div>
+
+        <form method="get" id="priceFilterForm" class="price-form">
+          {% comment %} keep category by using slug route and only GET price values {% endcomment %}
+          <label class="chk">
+            <input type="checkbox" name="price" value="50-100"
+                   onchange="document.getElementById('priceFilterForm').submit();"
+                   {% if '50-100' in selected_ranges %}checked{% endif %}>
+            Rs. 50-100
+          </label>
+          <label class="chk">
+            <input type="checkbox" name="price" value="100-200"
+                   onchange="document.getElementById('priceFilterForm').submit();"
+                   {% if '100-200' in selected_ranges %}checked{% endif %}>
+            Rs. 100-200
+          </label>
+          <label class="chk">
+            <input type="checkbox" name="price" value="200-300"
+                   onchange="document.getElementById('priceFilterForm').submit();"
+                   {% if '200-300' in selected_ranges %}checked{% endif %}>
+            Rs. 200-300
+          </label>
+          <label class="chk">
+            <input type="checkbox" name="price" value="300-500"
+                   onchange="document.getElementById('priceFilterForm').submit();"
+                   {% if '300-500' in selected_ranges %}checked{% endif %}>
+            Rs. 300-500
+          </label>
+        </form>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Product Grid + count -->
+    <main class="shop-main">
+      <div class="result-line">
+        Showing result {{ start_index }} - {{ end_index }} of {{ total_count }} results
+      </div>
+
+      <div class="product-flex">
+        {% for p in products %}
+        <div class="p-card">
+          <a class="p-img-wrap" href="{% url 'product_detail' p.id %}">
+            <img src="{{ p.image.url }}" alt="{{ p.name }}">
+          </a>
+
+          <div class="p-info">
+            <h4 class="p-name">{{ p.name }}</h4>
+
+            <div class="stars">
+              {% for i in "12345"|make_list %}
+                {% if forloop.counter <= p.rating %}
+                  <span class="star filled">★</span>
+                {% else %}
+                  <span class="star">☆</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="p-price">Rs. {{ p.price_single|floatformat:"-2" }}</div>
+
+            {% if p.price_pack10 %}
+              <div class="p-offer"><strong>Buy a pack of 10</strong> @ Rs. {{ p.price_pack10|floatformat:"-2" }}</div>
+            {% elif p.price_3plus %}
+              <div class="p-offer"><strong>Buy 3 or more</strong> @ Rs. {{ p.price_3plus|floatformat:"-2" }}</div>
+            {% endif %}
+          </div>
+
+          <button class="btn-add" onclick="alert('Product added to cart');">Add to Cart</button>
+        </div>
+        {% empty %}
+          <p>No products found.</p>
+        {% endfor %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}

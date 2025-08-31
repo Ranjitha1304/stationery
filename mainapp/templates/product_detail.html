@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+
+<div class="pd-wrap">
+
+  <div class="pd-body">
+    <!-- Left -->
+    <div class="pd-left">
+      <div class="pd-img">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+      </div>
+
+      <div class="pd-left-info">
+        <div class="pd-name">{{ product.name }}</div>
+        <div class="pd-price">Rs. {{ product.price_single|floatformat:"-2" }}</div>
+        {% if product.price_pack10 %}
+          <div class="pd-offer"><strong>Buy pack of 10</strong> @ Rs. {{ product.price_pack10|floatformat:"-2" }}</div>
+        {% elif product.price_3plus %}
+          <div class="pd-offer"><strong>Buy 3 or more</strong> @ Rs. {{ product.price_3plus|floatformat:"-2" }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="pd-right">
+        <h2 class="pd-top">Product Description</h2>
+
+      <h3 class="pd-title">{{ product.name }}</h3>
+      {% if product.one_line_heading %}
+      <h4 class="pd-sub">{{ product.one_line_heading }}</h4>
+      {% endif %}
+      <p class="pd-desc">{{ product.description }}</p>
+
+      <h4 class="pd-key">Key Features:</h4>
+      <ul class="pd-list">
+        {% for f in product.get_features_list %}
+          <li>{{ f }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="pd-reviews">
+    <h3>Comments & Review</h3>
+    {% for r in product.reviews.all %}
+      <div class="rv">
+        <div class="rv-title">{{ forloop.counter }}. {{ r.title }}</div>
+        <div class="stars">
+          Rating:
+          {% for i in "12345"|make_list %}
+
+            {% if forloop.counter0 < r.rating %}
+              <span class="star filled">★</span>
+            {% else %}
+              <span class="star">☆</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <p class="rv-text">{{ r.content }}</p>
+      </div>
+    {% empty %}
+      <p>No reviews yet.</p>
+    {% endfor %}
+  </div>
+
+  <!-- Actions -->
+  <div class="pd-actions">
+    <button class="btn-outline" onclick="alert('Product added to cart');">ADD TO CART</button>
+    <a href="{% url 'buy_now' product.id %}" class="btn-solid">BUY NOW</a>
+  </div>
+</div>
+{% endblock %}

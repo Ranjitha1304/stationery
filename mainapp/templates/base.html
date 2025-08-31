@@ -1,0 +1,183 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Supplyhive</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="{% url 'home' %}" class="logo"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+      <a href="{% url 'home' %}" class="brand">Supplyhive</a>
+    </div>
+
+    <nav class="nav-center">
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}" class="active">Home</a></li>
+        <li><a href="{% url 'shop' %}">Shop</a></li>
+        <li><a href="{% url 'about' %}">About us</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="#" onclick="openLogin()">Login/Register</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <div class="search-box">
+<form method="get" action="{% url 'shop' %}" id="searchForm">
+  <input type="text" name="q" placeholder="Search for Stationery" value="{{ request.GET.q|default:'' }}">
+  <button type="submit"><i class='bx bx-search'></i></button>
+</form>
+      </div>
+      <a href="{% url 'cart_view' %}" class="icon"><i class='bx bx-cart'></i></a>
+      <span class="cart-badge">{{ cart_item_count }}</span>
+
+      <div class="user-menu">
+        <i class='bx bx-user' id="user-icon"></i>
+        <div class="dropdown" id="user-dropdown">
+          <a href="{% url 'my_order' %}">My Order</a>
+          <a href="{% url 'track_order' %}">Track Order</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <i class='bx bx-menu'></i>
+    </div>
+  </header>
+
+
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h2>Signin</h2>
+    <p class="create-account"><a href="{% url 'signup_view' %}">Create an Account</a></p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <label for="username">User name</label>
+      <input type="text" id="username" name="username" placeholder="User name" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+
+      <button type="submit" style="color: black;">Submit now</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+  {% block content %}{% endblock %}
+
+  <!-- FOOTER -->
+  <footer>
+          <div class="footer-logo">
+        <img src="{% static 'images/logo.png' %}" alt="logo">
+        <div class="heading">
+        <span>Supplyhive</span>
+        <p>2025 Supplyhive Limited</p>
+        </div>
+      </div>
+
+    <div class="footer-top">
+
+      <div class="footer-columns">
+        <div>
+          <h4>Company</h4>
+          <p>About us</p>
+          <p>Supplyhive corporate</p>
+          <p>Careers</p>
+          <p>Team</p>
+        </div>
+        <div>
+          <h4>Contact us</h4>
+          <p>Help & Support</p>
+          <p>Partner with us</p>
+          <p>Ride with us</p>
+        </div>
+        <div>
+          <h4>Available in</h4>
+          <p>Coimbatore</p>
+          <p>Bengaluru</p>
+          <p>Chennai</p>
+          <p>Kolkata</p>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <p>Terms & Conditions</p>
+          <p>Cookie policy</p>
+          <p>Privacy Policy</p>
+        </div>
+        <div>
+          <h4>Information</h4>
+          <p>Location</p>
+          <p>Email</p>
+          <p>Social Media</p>
+          <div class="social-icons">
+            <img src="{% static 'images/insta.png' %}" alt="">
+            <img src="{% static 'images/fb.png' %}" alt="">
+            <img src="{% static 'images/wa.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>For better experience , download the app now</p>
+      <div class="app-buttons">
+        <div class="playstore">
+          <img src="{% static 'images/playstore.png' %}" alt="">
+          <span>Get it on <br> Google play</span>
+        </div>
+        <div class="appstore">
+          <img src="{% static 'images/apple.png' %}" alt="">
+          <span>Download on the <br> App Store</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // User dropdown toggle
+    document.getElementById('user-icon').onclick = function() {
+      document.getElementById('user-dropdown').classList.toggle('show');
+    }
+
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').onclick = function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
+
+
+  <script>
+function openLogin() {
+    document.getElementById("loginModal").style.display = "block";
+}
+
+function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+// Close when clicking outside the modal box
+window.onclick = function(event) {
+  let modal = document.getElementById("loginModal");
+  if (event.target === modal) {
+    closeLogin();
+  }
+}
+</script>
+
+
+</body>
+</html>

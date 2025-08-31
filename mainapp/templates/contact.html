@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- Banner -->
+<section class="contact-banner">
+    {% if banners %}
+    <img src="{{ banners.banner_top.url }}" alt="Contact Banner">
+    {% endif %}
+</section>
+
+<!-- Heading -->
+<h2 class="contact-heading">"Your Perfect Stationery Partner Is Just a Message Away."</h2>
+
+<!-- Contact Details -->
+<section class="contact-box">
+    <h2>Contact Details</h2>
+    <div class="contact-flex">
+        <div class="contact-card">
+            <i class='bx bxs-map'></i>
+            <p><b>Location</b><br>78 Beechwood Ave.<br>Sarasota, FL 34231</p>
+        </div>
+        <div class="contact-card">
+            <i class='bx bxs-envelope'></i>
+            <p><b>E-mail</b><br>example@gmail.com<br>debra.holt@example.com</p>
+        </div>
+        <div class="contact-card">
+            <i class='bx bxs-phone'></i>
+            <p><b>Contact</b><br>019457896332<br>016457896333</p>
+        </div>
+    </div>
+</section>
+
+<!-- Second Banner -->
+<section class="contact-banner">
+    {% if banners %}
+    <img src="{{ banners.banner_bottom.url }}" alt="Contact Banner">
+    {% endif %}
+</section>
+
+<!-- Write Us Form -->
+<section class="write-us">
+    <h2>Have a List? We’ve Got the Stationery—Contact Us Now!</h2>
+    <h4>Write Us</h4>
+    <p>We are always happy to be of service to you. Be sure to listen to the prompt to help direct you to the right person.</p>
+
+    {% if messages %}
+        {% for msg in messages %}
+            <p class="success-msg">{{ msg }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="contact-form">
+        {% csrf_token %}
+        <div class="form-flex">
+            <div>
+                <label>Name</label><br>
+                {{ form.name }}
+            </div>
+            <div>
+                <label>Email</label><br>
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="form-flex">
+            <div>
+                <label>Phone Number</label><br>
+                {{ form.phone }}
+            </div>
+            <div>
+                <label>Message</label><br>
+                {{ form.message }}
+            </div>
+        </div>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+{% endblock %}

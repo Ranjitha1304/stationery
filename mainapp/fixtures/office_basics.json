@@ -1,0 +1,334 @@
+[
+  {
+    "model": "mainapp.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Stapler Heavy Duty",
+      "image": "products/o1.png",
+      "price_single": "150.00",
+      "price_pack10": "1350.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Reliable stapler for office use",
+      "description": "This heavy-duty stapler is designed for everyday office needs. It can bind up to 50 sheets in one go, making it perfect for both small and large tasks. Built with durable steel, it ensures long-lasting use. Its ergonomic grip reduces strain during repetitive work. Compact size makes it easy to store in drawers or carry. A must-have accessory for every organized workspace.",
+      "key_features": "Binds up to 50 sheets\nErgonomic grip handle\nDurable steel body\nCompact and portable\nJam-resistant mechanism\nRefill indicator window"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "title": "Strong and sturdy",
+      "rating": 5,
+      "content": "Staples smoothly without jams. A lifesaver for my reports."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "title": "Good but heavy",
+      "rating": 4,
+      "content": "Works perfectly but a little heavy to carry around daily."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Paper Clips Box",
+      "image": "products/o2.png",
+      "price_single": "50.00",
+      "price_pack10": null,
+      "price_3plus": "120.00",
+      "rating": 3,
+      "one_line_heading": "100-count pack of premium paper clips",
+      "description": "Keep your documents neatly organized with this box of paper clips. Rust-resistant and smooth finished, these clips are gentle on paper. The strong grip ensures papers stay secure without slipping. Perfect for office, school, or home organization. Compact box keeps them tidy and portable. Affordable and practical for everyday use.",
+      "key_features": "100 clips per box\nRust-resistant finish\nSmooth edges to avoid tearing paper\nStrong gripping power\nCompact and portable box\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 3,
+    "fields": {
+      "product": 2,
+      "title": "Exactly what I needed",
+      "rating": 4,
+      "content": "Simple, cheap, and effective. The box lasts a long time."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 4,
+    "fields": {
+      "product": 2,
+      "title": "Not very strong",
+      "rating": 3,
+      "content": "Some clips bend easily if used for too many papers."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Desk Organizer Tray",
+      "image": "products/o3.png",
+      "price_single": "450.00",
+      "price_pack10": null,
+      "price_3plus": "1200.00",
+      "rating": 5,
+      "one_line_heading": "Organize pens, notes, and supplies",
+      "description": "A multi-compartment desk organizer tray designed to keep stationery and documents tidy. Its sturdy plastic build makes it lightweight yet durable. Ideal for holding pens, sticky notes, clips, and even small electronics. The modern design fits well in any office setting. Helps reduce clutter and improves efficiency. Easy to clean and maintain for long-term use.",
+      "key_features": "Multiple compartments\nDurable plastic material\nLightweight and portable\nSleek modern design\nHelps reduce desk clutter\nEasy to clean"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 5,
+    "fields": {
+      "product": 3,
+      "title": "Neat desk finally!",
+      "rating": 5,
+      "content": "All my pens and sticky notes are now in one place. Love it."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 6,
+    "fields": {
+      "product": 3,
+      "title": "Good value",
+      "rating": 4,
+      "content": "Sturdy and stylish, looks neat on my office table."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+      "category": 1,
+      "name": "Office Scissors Set",
+      "image": "products/o4.png",
+      "price_single": "120.00",
+      "price_pack10": "1100.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Precision scissors for everyday tasks",
+      "description": "This office scissors set includes two sizes for multipurpose use. Sharp stainless-steel blades cut smoothly through paper, fabric, and plastic. Ergonomic handles provide comfort during prolonged use. Suitable for home, office, and school projects. Lightweight yet durable, these scissors last for years. A safe choice with protective blade covers.",
+      "key_features": "Set of 2 sizes\nSharp stainless steel blades\nErgonomic comfort grip\nMultipurpose cutting use\nDurable lightweight design\nProtective blade covers"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 7,
+    "fields": {
+      "product": 4,
+      "title": "Sharp and smooth",
+      "rating": 5,
+      "content": "Cuts paper like butter, very satisfied with the quality."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 8,
+    "fields": {
+      "product": 4,
+      "title": "Nice grip",
+      "rating": 4,
+      "content": "Handles feel comfortable even after long use."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 5,
+    "fields": {
+      "category": 1,
+      "name": "Whiteboard Markers Pack",
+      "image": "products/o5.png",
+      "price_single": "200.00",
+      "price_pack10": null,
+      "price_3plus": "500.00",
+      "rating": 5,
+      "one_line_heading": "Pack of 6 vibrant whiteboard markers",
+      "description": "High-quality markers that write smoothly and erase cleanly. Includes 6 assorted colors for clear visibility. Low-odor, non-toxic ink safe for classrooms and offices. Long-lasting ink ensures extended use. Markers come with fine tips for precision writing. Easy to erase without leaving stains or residue.",
+      "key_features": "Pack of 6 colors\nSmooth writing performance\nFine tips for clarity\nLow-odor, non-toxic ink\nLong-lasting ink\nEasy erase without stains"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 9,
+    "fields": {
+      "product": 5,
+      "title": "Great colors",
+      "rating": 5,
+      "content": "Colors are vibrant and don’t dry quickly. Perfect for office meetings."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 10,
+    "fields": {
+      "product": 5,
+      "title": "Erases well",
+      "rating": 4,
+      "content": "Leaves no residue, very clean whiteboard after use."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 6,
+    "fields": {
+      "category": 1,
+      "name": "Sticky Notes Pad",
+      "image": "products/o6.png",
+      "price_single": "60.00",
+      "price_pack10": null,
+      "price_3plus": "150.00",
+      "rating": 4,
+      "one_line_heading": "Bright sticky notes for reminders",
+      "description": "Keep track of important tasks with these colorful sticky notes. Strong adhesive ensures they stick securely to most surfaces. Easy to remove without leaving residue. Each pad contains 100 sheets in assorted bright colors. Perfect for reminders, study notes, and quick communication. A must-have for students and professionals alike.",
+      "key_features": "100 sheets per pad\nBright assorted colors\nStrong adhesive\nRemoves cleanly without residue\nCompact and lightweight\nIdeal for notes and reminders"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 11,
+    "fields": {
+      "product": 6,
+      "title": "Handy and bright",
+      "rating": 4,
+      "content": "Keeps my reminders visible on the monitor, love the colors."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 12,
+    "fields": {
+      "product": 6,
+      "title": "Good adhesive",
+      "rating": 5,
+      "content": "Sticks well but doesn’t damage paper when removed."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 7,
+    "fields": {
+      "category": 1,
+      "name": "Office Tape Dispenser",
+      "image": "products/o7.png",
+      "price_single": "180.00",
+      "price_pack10": "1600.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Durable tape dispenser with blade",
+      "description": "A reliable tape dispenser designed for quick and smooth usage. Weighted base keeps it stable on desks. Sharp metal blade provides effortless cutting. Fits standard office tape rolls easily. Compact design saves space and looks professional. A time-saving accessory for every office desk.",
+      "key_features": "Weighted base for stability\nSharp metal blade\nFits standard tape rolls\nDurable plastic body\nCompact desk design\nTime-saving accessory"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 13,
+    "fields": {
+      "product": 7,
+      "title": "Stable and sharp",
+      "rating": 5,
+      "content": "Cuts cleanly and doesn’t move around while pulling tape."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 14,
+    "fields": {
+      "product": 7,
+      "title": "Good design",
+      "rating": 4,
+      "content": "Looks neat and professional on my desk."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 8,
+    "fields": {
+      "category": 1,
+      "name": "Punching Machine",
+      "image": "products/o8.png",
+      "price_single": "250.00",
+      "price_pack10": null,
+      "price_3plus": "600.00",
+      "rating": 3,
+      "one_line_heading": "2-hole punch machine for documents",
+      "description": "This punching machine is ideal for preparing documents for filing. Strong metal construction ensures durability. Can punch through up to 20 sheets at once. Compact design makes it easy to use and store. Rubber base prevents slipping during use. A useful addition for any office filing system.",
+      "key_features": "Punches 20 sheets at once\nStrong metal body\nCompact and lightweight\nNon-slip rubber base\nEasy to use\nDurable for long-term use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 15,
+    "fields": {
+      "product": 8,
+      "title": "Works well",
+      "rating": 4,
+      "content": "Good punching machine, doesn’t require much force."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 16,
+    "fields": {
+      "product": 8,
+      "title": "Average",
+      "rating": 3,
+      "content": "Does the job but feels a bit stiff sometimes."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "pk": 9,
+    "fields": {
+      "category": 1,
+      "name": "Office Pin Box",
+      "image": "products/o9.png",
+      "price_single": "70.00",
+      "price_pack10": "600.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Pack of 200 office pins",
+      "description": "Organize papers effortlessly with this box of office pins. Made of stainless steel for strength and rust resistance. Sharp tips ensure easy pinning on paper and boards. Comes in a handy plastic box for storage. A staple accessory for schools, offices, and home use. Compact, durable, and affordable.",
+      "key_features": "200 pins per box\nStainless steel construction\nRust-resistant material\nSharp tips for easy use\nCompact storage box\nDurable and reusable"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 17,
+    "fields": {
+      "product": 9,
+      "title": "Handy box",
+      "rating": 4,
+      "content": "Keeps all pins in one place, sharp and effective."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "pk": 18,
+    "fields": {
+      "product": 9,
+      "title": "Affordable",
+      "rating": 5,
+      "content": "Very cheap and lasts for months. Excellent quality."
+    }
+  }
+]

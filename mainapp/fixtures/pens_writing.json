@@ -1,0 +1,307 @@
+[
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Ballpoint Pen Set",
+      "image": "products/w1.png",
+      "price_single": "30.00",
+      "price_pack10": "280.00",
+      "price_3plus": null,
+      "rating": 5,
+      "one_line_heading": "Smooth writing ballpoint pens",
+      "description": "Set of 5 high-quality ballpoint pens for everyday use. Smooth ink flow ensures effortless writing. Comfortable grip for long writing sessions. Ideal for students and professionals.",
+      "key_features": "Set of 5 pens\nSmooth ink flow\nComfortable grip\nDurable body\nIdeal for office and school\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 1,
+      "title": "Writes smoothly",
+      "rating": 5,
+      "content": "Ink flows well and pen feels comfortable in hand."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 1,
+      "title": "Good value",
+      "rating": 4,
+      "content": "Affordable and works perfectly for daily writing."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Gel Pen Set",
+      "image": "products/w2.png",
+      "price_single": "50.00",
+      "price_pack10": null,
+      "price_3plus": "120.00",
+      "rating": 5,
+      "one_line_heading": "Vibrant color gel pens for precise writing",
+      "description": "Set of 6 gel pens with smooth ink for clear and vibrant writing. Ideal for notes, journals, and creative work. Quick-drying ink prevents smudging.",
+      "key_features": "Set of 6 pens\nVibrant ink colors\nSmooth writing\nQuick-drying\nComfortable grip\nDurable barrel"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 2,
+      "title": "Very vibrant",
+      "rating": 5,
+      "content": "Colors are bright and ink flows nicely."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 2,
+      "title": "Smooth writing",
+      "rating": 4,
+      "content": "Perfect for journaling and notes."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Mechanical Pencil",
+      "image": "products/w3.png",
+      "price_single": "60.00",
+      "price_pack10": "550.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Precision mechanical pencil for writing & drawing",
+      "description": "Durable mechanical pencil with smooth lead and comfortable grip. Ideal for drawing, sketching, or taking notes. Comes with extra 0.5mm leads.",
+      "key_features": "0.5mm lead\nDurable body\nComfortable grip\nRefillable\nIdeal for drawing and writing\nCompact design"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 3,
+      "title": "Writes nicely",
+      "rating": 4,
+      "content": "Good grip and precise lead for detailed writing."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 3,
+      "title": "Durable pencil",
+      "rating": 4,
+      "content": "Lead is smooth and refills easily."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Fountain Pen",
+      "image": "products/w4.png",
+      "price_single": "250.00",
+      "price_pack10": null,
+      "price_3plus": "700.00",
+      "rating": 5,
+      "one_line_heading": "Elegant fountain pen for professional writing",
+      "description": "Premium fountain pen with smooth ink flow and classic design. Ideal for signatures, journaling, and gifting. Comfortable grip and refillable cartridge.",
+      "key_features": "Smooth ink flow\nElegant design\nRefillable cartridge\nComfortable grip\nDurable metal body\nPerfect for gifting"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 4,
+      "title": "Elegant pen",
+      "rating": 5,
+      "content": "Feels premium and writes very smoothly."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 4,
+      "title": "Perfect gift",
+      "rating": 5,
+      "content": "Loved the design and smooth writing experience."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Highlighter Set",
+      "image": "products/w5.png",
+      "price_single": "80.00",
+      "price_pack10": null,
+      "price_3plus": "200.00",
+      "rating": 4,
+      "one_line_heading": "Bright neon highlighters for important notes",
+      "description": "Set of 5 neon highlighters with durable tips. Smooth ink flow for highlighting text clearly. Ideal for students and office use.",
+      "key_features": "Set of 5 highlighters\nNeon colors\nSmooth ink flow\nDurable tip\nIdeal for office and school\nBright and clear"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 5,
+      "title": "Very bright",
+      "rating": 4,
+      "content": "Colors are vivid and tip is sturdy."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 5,
+      "title": "Good for notes",
+      "rating": 4,
+      "content": "Highlights text clearly without smudging."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Rollerball Pen",
+      "image": "products/w6.png",
+      "price_single": "150.00",
+      "price_pack10": null,
+      "price_3plus": "400.00",
+      "rating": 5,
+      "one_line_heading": "Smooth-flowing rollerball pen",
+      "description": "Premium rollerball pen for smooth and effortless writing. Ideal for office, meetings, and personal notes. Sleek design with refillable ink.",
+      "key_features": "Smooth ink flow\nRefillable\nErgonomic grip\nDurable design\nSleek appearance\nProfessional use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 6,
+      "title": "Writes beautifully",
+      "rating": 5,
+      "content": "Ink flows easily, feels premium to write with."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 6,
+      "title": "Professional look",
+      "rating": 4,
+      "content": "Perfect for office use and gifting."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Calligraphy Pen Set",
+      "image": "products/w7.png",
+      "price_single": "300.00",
+      "price_pack10": null,
+      "price_3plus": "850.00",
+      "rating": 4,
+      "one_line_heading": "Set for beginners and enthusiasts",
+      "description": "Complete calligraphy pen set with 3 nibs and ink bottle. Ideal for artistic writing and creative projects. High-quality materials ensure smooth strokes.",
+      "key_features": "3 nibs\nInk bottle included\nSmooth strokes\nDurable materials\nFor beginners and enthusiasts\nPerfect for creative writing"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 7,
+      "title": "Great set",
+      "rating": 4,
+      "content": "Nibs are good quality, perfect for practice."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 7,
+      "title": "Nice for beginners",
+      "rating": 5,
+      "content": "Comes with everything needed to start calligraphy."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Permanent Marker Set",
+      "image": "products/w8.png",
+      "price_single": "90.00",
+      "price_pack10": null,
+      "price_3plus": "220.00",
+      "rating": 4,
+      "one_line_heading": "Long-lasting permanent markers",
+      "description": "Set of 4 permanent markers with bold colors. Ideal for labeling, crafts, and office use. Quick-drying and smudge-resistant ink.",
+      "key_features": "Set of 4 markers\nBold colors\nPermanent ink\nQuick-drying\nSmudge-resistant\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 8,
+      "title": "Very effective",
+      "rating": 4,
+      "content": "Marks clearly on any surface, long-lasting ink."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 8,
+      "title": "Good markers",
+      "rating": 4,
+      "content": "Quick-drying and easy to use."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 4,
+      "name": "Colored Pen Set",
+      "image": "products/w9.png",
+      "price_single": "120.00",
+      "price_pack10": "1000.00",
+      "price_3plus": null,
+      "rating": 5,
+      "one_line_heading": "Set of 12 colored pens for creative work",
+      "description": "Vibrant colored pen set with smooth ink flow. Ideal for school projects, art, and journaling. Comfortable grip and durable design.",
+      "key_features": "12 pens\nVibrant colors\nSmooth ink\nComfortable grip\nDurable body\nPerfect for creative use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 9,
+      "title": "Excellent colors",
+      "rating": 5,
+      "content": "Colors are bright, ink flows smoothly."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 9,
+      "title": "Very useful",
+      "rating": 5,
+      "content": "Great for school and art projects."
+    }
+  }
+]

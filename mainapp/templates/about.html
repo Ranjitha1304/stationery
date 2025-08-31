@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+<!-- Banner Section -->
+<section class="about-banner">
+    {% if banner %}
+    <img src="{{ banner.banner_image.url }}" alt="About Banner">
+    {% endif %}
+</section>
+
+<div class="abthead">
+    <h1>"Smart supplies for Bright Futures."</h1>
+</div>
+
+<!-- Intro Content -->
+<section class="about-intro">
+    <p>We provide quality stationery and school supplies to support learning, creativity, and organization. 
+       From classrooms to home desks, we’re here to help students and educators stay prepared and inspired.</p>
+</section>
+
+<!-- Gallery 3 Images -->
+<section class="about-gallery">
+    <div class="gallery-flex">
+        {% for img in gallery_images %}
+        <div class="gallery-card">
+            <img src="{{ img.image.url }}" alt="Gallery Image">
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Pen & Pencil Section -->
+<section class="about-section">
+    <h2>PEN & PENCIL</h2>
+    <p>At Supplyhive, we believe a great pen is more than just a writing tool—it's an expression of thought, precision, and personality. 
+       From smooth everyday ballpoints to elegant signature pens, we offer reliable writing instruments designed for comfort, style, and performance.</p>
+    {% if pen_image %}
+    <img src="{{ pen_image.image.url }}" alt="Pen and Pencil" class="full-img">
+    {% endif %}
+</section>
+
+<!-- Bag Section -->
+<section class="about-section">
+    <h2>BAGS</h2>
+    {% if bag_image %}
+    <img src="{{ bag_image.image.url }}" alt="Bag" class="full-img">
+    {% endif %}
+</section>
+
+<!-- All Stationery Section -->
+<section class="about-section">
+    <h2>ALL STATIONERY</h2>
+    <p>We offer a wide range of stationery essentials, from notebooks, folders, and sticky notes to markers, staplers, and rulers. Each item is chosen for quality, functionality, and style - perfect for school, office or creative use.</p>
+    {% if stationery_image %}
+    <img src="{{ stationery_image.image.url }}" alt="All Stationery" class="full-img">
+    {% endif %}
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+    <h2 class="team-title">The Team</h2>
+    <p class="team-desc">
+        Our team is a dedicated group of professionals passionate about delivering quality stationery in bulk with efficiency and care. 
+        With expertise in sourcing, logistics, and customer service, we ensure every order meets the highest standards.
+    </p>
+
+    <div class="team-grid">
+        {% for member in team_members %}
+        <div class="team-card">
+            <img src="{{ member.image.url }}" alt="{{ member.name }}" class="team-img">
+            <h3 class="team-name">{{ member.name }}</h3>
+            <p class="team-role">{{ member.designation }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

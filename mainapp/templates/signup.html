@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+<!-- Banner from admin -->
+<div class="banner">
+    <img src="../static/images/regbanner.png" alt="Register Banner">
+</div>
+    <h1 class="signhead">"Your Perfect Stationery Partner Is Just a Message Away."</h1>
+
+<div class="auth-container">
+    <!-- Register Box -->
+    <div class="auth-box">
+        <h2>Signin</h2>
+
+        <form method="POST" action="{% url 'signup_view' %}">
+            {% csrf_token %}
+            <div class="input-row">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Email ID" required>
+            </div>
+
+            <div class="input-row">
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit">Submit now</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

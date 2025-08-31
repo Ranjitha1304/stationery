@@ -1,0 +1,307 @@
+[
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "A4 Lined Notebook",
+      "image": "products/p1.png",
+      "price_single": "120.00",
+      "price_pack10": "1100.00",
+      "price_3plus": null,
+      "rating": 5,
+      "one_line_heading": "High-quality A4 notebook for notes",
+      "description": "This A4 lined notebook is perfect for students and office use. 200 pages with smooth, thick paper prevent ink bleed. Durable binding ensures long-lasting use. Ideal for notes, journaling, and assignments.",
+      "key_features": "200 pages\nSmooth thick paper\nDurable binding\nA4 size\nPerfect for students and professionals\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 1,
+      "title": "Excellent quality",
+      "rating": 5,
+      "content": "Pages are thick and smooth, writing feels great."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 1,
+      "title": "Perfect for office",
+      "rating": 4,
+      "content": "Good size and sturdy cover, very useful for daily notes."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "Sketchbook Pad",
+      "image": "products/p2.png",
+      "price_single": "250.00",
+      "price_pack10": null,
+      "price_3plus": "700.00",
+      "rating": 4,
+      "one_line_heading": "Premium sketchbook for artists",
+      "description": "A high-quality sketchbook pad with 100 sheets of acid-free paper. Ideal for pencil, charcoal, and ink sketches. Thick pages prevent bleed-through and tearing. Perfect for students and professional artists.",
+      "key_features": "100 sheets\nAcid-free paper\nThick pages\nSuitable for pencil, charcoal, ink\nDurable cover\nPortable size"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 2,
+      "title": "Great sketchbook",
+      "rating": 5,
+      "content": "Paper quality is excellent, perfect for detailed sketches."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 2,
+      "title": "Nice and sturdy",
+      "rating": 4,
+      "content": "Cover is solid and pages are thick enough for my art."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "Graph Notebook",
+      "image": "products/p3.png",
+      "price_single": "100.00",
+      "price_pack10": "900.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Perfect notebook for math and engineering",
+      "description": "Graph notebook with 100 pages, ideal for plotting, drawing, and engineering calculations. Durable binding and smooth paper quality make it long-lasting and easy to use.",
+      "key_features": "100 pages\nGraph paper\nDurable binding\nSmooth paper\nAids in plotting and calculations\nPortable"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 3,
+      "title": "Very useful",
+      "rating": 4,
+      "content": "Great for math assignments and plotting graphs."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 3,
+      "title": "Good quality",
+      "rating": 4,
+      "content": "Paper is smooth and squares are accurate."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "Sticky Notes Pack",
+      "image": "products/p4.png",
+      "price_single": "60.00",
+      "price_pack10": null,
+      "price_3plus": "150.00",
+      "rating": 5,
+      "one_line_heading": "Colorful sticky notes for reminders",
+      "description": "Pack of 6 vibrant sticky notes pads. Strong adhesive and bright colors make them ideal for reminders, notes, and bookmarks. Each pad contains 100 sheets.",
+      "key_features": "6 pads\n100 sheets each\nBright colors\nStrong adhesive\nEasy to remove\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 4,
+      "title": "Very handy",
+      "rating": 5,
+      "content": "Colors are bright and adhesive works well."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 4,
+      "title": "Useful for notes",
+      "rating": 4,
+      "content": "Perfect for keeping reminders on my desk and books."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "College Ruled Notebook",
+      "image": "products/p5.png",
+      "price_single": "80.00",
+      "price_pack10": "700.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Classic ruled notebook for school and college",
+      "description": "A 120-page notebook with smooth, ruled pages. Ideal for students, note-taking, and assignments. Durable cover protects pages from wear and tear.",
+      "key_features": "120 pages\nSmooth ruled paper\nDurable cover\nLightweight\nPerfect for students\nAffordable"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 5,
+      "title": "Good for school",
+      "rating": 4,
+      "content": "Writing feels smooth and pages are well-ruled."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 5,
+      "title": "Affordable",
+      "rating": 5,
+      "content": "Great value for money, nice quality paper."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "Notebook with Hard Cover",
+      "image": "products/p6.png",
+      "price_single": "180.00",
+      "price_pack10": null,
+      "price_3plus": "500.00",
+      "rating": 5,
+      "one_line_heading": "Sturdy hard cover notebook for long-term use",
+      "description": "A durable hard cover notebook with 150 pages. Smooth paper ensures easy writing. Ideal for professional notes, journaling, or school assignments.",
+      "key_features": "150 pages\nHard cover\nSmooth writing\nDurable binding\nProfessional design\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 6,
+      "title": "Very sturdy",
+      "rating": 5,
+      "content": "Hard cover protects pages well, writing is smooth."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 6,
+      "title": "High quality",
+      "rating": 4,
+      "content": "Perfect for taking notes daily, durable and neat."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "Notebook Set of 3",
+      "image": "products/p7.png",
+      "price_single": "250.00",
+      "price_pack10": "2200.00",
+      "price_3plus": null,
+      "rating": 4,
+      "one_line_heading": "Set of 3 assorted notebooks",
+      "description": "Three notebooks in assorted colors and designs. Each notebook has 100 pages with ruled paper. Perfect for school, college, or office use.",
+      "key_features": "Set of 3\n100 pages each\nRuled paper\nAssorted colors\nDurable cover\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 7,
+      "title": "Good set",
+      "rating": 4,
+      "content": "Nice variety of colors and sturdy pages."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 7,
+      "title": "Value pack",
+      "rating": 5,
+      "content": "Great for students, all three notebooks are useful."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "A5 Pocket Notebook",
+      "image": "products/p8.png",
+      "price_single": "70.00",
+      "price_pack10": null,
+      "price_3plus": "180.00",
+      "rating": 4,
+      "one_line_heading": "Compact A5 notebook for quick notes",
+      "description": "A small, portable notebook with 80 pages, perfect for jotting down ideas on the go. Durable cover and smooth pages.",
+      "key_features": "80 pages\nCompact A5 size\nDurable cover\nSmooth paper\nPortable\nEasy to carry"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 8,
+      "title": "Very convenient",
+      "rating": 4,
+      "content": "Fits in my bag easily, pages are good quality."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 8,
+      "title": "Nice pocket size",
+      "rating": 5,
+      "content": "Perfect for quick notes and ideas."
+    }
+  },
+
+  {
+    "model": "mainapp.product",
+    "fields": {
+      "category": 3,
+      "name": "Colored Paper Pack",
+      "image": "products/p9.png",
+      "price_single": "150.00",
+      "price_pack10": "1400.00",
+      "price_3plus": null,
+      "rating": 5,
+      "one_line_heading": "Pack of 100 sheets colored paper",
+      "description": "Bright colored paper for crafts, presentations, and art projects. Each pack contains 100 sheets in assorted colors. High-quality and smooth finish.",
+      "key_features": "100 sheets\nAssorted colors\nSmooth finish\nPerfect for crafts\nHigh-quality paper\nMultipurpose use"
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 9,
+      "title": "Excellent colors",
+      "rating": 5,
+      "content": "Colors are bright and paper quality is very good."
+    }
+  },
+  {
+    "model": "mainapp.review",
+    "fields": {
+      "product": 9,
+      "title": "Good for crafts",
+      "rating": 4,
+      "content": "Perfect for school projects and art work."
+    }
+  }
+]

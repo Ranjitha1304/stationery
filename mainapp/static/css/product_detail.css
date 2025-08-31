@@ -1,0 +1,195 @@
+/* =============================
+   Product Detail Page Styles
+   ============================= */
+.pd-wrap {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 100px;
+}
+
+.pd-top {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+/* ----------- Body Layout ----------- */
+.pd-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.pd-left {
+  flex: 1;
+  max-width: 45%;
+}
+
+.pd-img {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  background: #fafafa;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.pd-img img {
+  width: 600px;
+  height: auto;
+  object-fit: cover;
+}
+
+.pd-left-info {
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.pd-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pd-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.pd-offer {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* ----------- Right Side ----------- */
+.pd-right {
+  flex: 1.2;
+}
+
+.pd-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.pd-sub {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.pd-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.pd-key {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pd-list {
+  padding-left: 18px;
+  margin-bottom: 20px;
+}
+
+.pd-list li {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+/* ----------- Reviews ----------- */
+.pd-reviews {
+  margin-bottom: 35px;
+}
+
+.pd-reviews h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.rv {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.rv-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stars {
+  margin-bottom: 6px;
+}
+
+.star {
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+.star.filled {
+  color: black;
+}
+
+.rv-text {
+  font-size: 14px;
+}
+
+/* ----------- Buttons ----------- */
+.pd-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-outline {
+  background: #0066cc;
+  border: 2px solid #0066cc;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background:#fff; 
+  color: #0066cc;
+}
+
+.btn-solid {
+  background: #0066cc;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-solid:hover {
+  background:#fff; 
+  color: #0066cc;
+  border:2px solid #0066cc;
+}

@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+<div class="checkout-wrap">
+  <div class="billing-card">
+    <h2>Billing Details</h2>
+    <form id="checkoutForm" method="post" novalidate>
+      {% csrf_token %}
+      <label>Name</label>
+      <input type="text" name="name" id="name" placeholder="Your name">
+      <div class="error" id="err-name"></div>
+
+      <label>Street Address</label>
+      <input type="text" name="street_address" id="street_address" placeholder="Street address">
+      <div class="error" id="err-street_address"></div>
+
+      <label>Town/City</label>
+      <input type="text" name="town_city" id="town_city" placeholder="Town/City">
+      <div class="error" id="err-town_city"></div>
+
+      <label>Postal Code</label>
+      <input type="text" name="postal_code" id="postal_code" placeholder="641402" maxlength="6">
+      <div class="error" id="err-postal_code"></div>
+    </form>
+  </div>
+
+  <div class="order-card">
+    <h3>Your Order</h3>
+    <div class="order-items">
+      {% for item in items %}
+        <div class="order-row">
+          <div class="left">{{ item.product.name }} x {{ item.quantity }}</div>
+          <div class="right">Rs. {{ item.total_price|floatformat:"-2" }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="order-total-row">
+      <div>Total</div>
+      <div class="order-total-amount">Rs. <span id="order-total">{{ subtotal|floatformat:"-2" }}</span></div>
+    </div>
+
+    <button id="placeOrderBtn" class="btn-place">Place order</button>
+  </div>
+</div>
+
+<!-- success overlay (hidden by default) -->
+<div id="orderSuccess" class="order-success" style="display:none;">
+  <div class="success-box">
+    <div class="tick">✔️</div>
+    <div class="msg">Order Placed Successfully</div>
+  </div>
+</div>
+
+<script>
+  // CSRF helper
+  function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
+  document.getElementById('placeOrderBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    // client side validation
+    const name = document.getElementById('name').value.trim();
+    const street_address = document.getElementById('street_address').value.trim();
+    const town_city = document.getElementById('town_city').value.trim();
+    const postal_code = document.getElementById('postal_code').value.trim();
+
+    // clear errors
+    ['name','street_address','town_city','postal_code'].forEach(id => {
+      document.getElementById('err-' + id).textContent = '';
+    });
+
+    let hasErr = false;
+    if (!name) { document.getElementById('err-name').textContent = 'Name required'; hasErr = true;}
+    if (!street_address) { document.getElementById('err-street_address').textContent = 'Street required'; hasErr = true;}
+    if (!town_city) { document.getElementById('err-town_city').textContent = 'Town/City required'; hasErr = true;}
+    if (!/^\d{6}$/.test(postal_code)) { document.getElementById('err-postal_code').textContent = 'Postal code must be 6 digits'; hasErr = true;}
+
+    if (hasErr) return;
+
+    const data = new FormData();
+    data.append('name', name);
+    data.append('street_address', street_address);
+    data.append('town_city', town_city);
+    data.append('postal_code', postal_code);
+
+    fetch("{% url 'checkout' %}", {
+      method: 'POST',
+      headers: {'X-CSRFToken': csrftoken},
+      body: data
+    }).then(r => r.json()).then(resp => {
+      if (resp.success) {
+        // show overlay for 2s then redirect
+        document.getElementById('orderSuccess').style.display = 'block';
+        setTimeout(() => {
+          window.location = resp.redirect || '/';
+        }, 2000);
+      } else {
+        // show server side errors
+        if (resp.errors) {
+          for (const k in resp.errors) {
+            const el = document.getElementById('err-' + k);
+            if (el) el.textContent = resp.errors[k];
+          }
+        }
+      }
+    }).catch(err => console.error(err));
+  });
+</script>
+
+{% endblock %}
