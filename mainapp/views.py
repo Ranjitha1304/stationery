@@ -363,7 +363,7 @@ def remove_cart_item(request):
 from django.http import JsonResponse
 from django.urls import reverse
 
-
+from datetime import timedelta
 
 @login_required(login_url="login_view")
 def checkout(request):
@@ -375,15 +375,31 @@ def checkout(request):
         if not items:
             return JsonResponse({"success": False, "errors": {"cart": "Cart is empty"}})
 
-        name = request.POST.get("name")
-        street_address = request.POST.get("street_address")
-        town_city = request.POST.get("town_city")
-        postal_code = request.POST.get("postal_code")
+        name = request.POST.get("name", "").strip()
+        street_address = request.POST.get("street_address", "").strip()
+        town_city = request.POST.get("town_city", "").strip()
+        postal_code = request.POST.get("postal_code", "").strip()
 
+        errors = {}
+        if not name:
+            errors["name"] = "Name required"
+        if not street_address:
+            errors["street_address"] = "Street required"
+        if not town_city:
+            errors["town_city"] = "Town/City required"
+        if not postal_code or not postal_code.isdigit() or len(postal_code) != 6:
+            errors["postal_code"] = "Postal code must be 6 digits"
+
+        if errors:
+            return JsonResponse({"success": False, "errors": errors})
+
+        # create order with timestamps and expected delivery date (editable later by admin)
         order = Order.objects.create(
             user=request.user,
             created_at=timezone.now(),
-            status="pending",
+            status="confirmed",
+            confirmed_at=timezone.now(),
+            expected_delivery_date=(timezone.now() + timedelta(days=7)).date(),
             name=name,
             street_address=street_address,
             town_city=town_city,
@@ -402,6 +418,7 @@ def checkout(request):
                 total_price=item.total_price,
             )
 
+        # clear cart
         cart.items.all().delete()
 
         return JsonResponse({
@@ -415,7 +432,34 @@ def checkout(request):
     })
 
 
+# Update order_success: you already have it showing home; keep minimal change (optional)
 @login_required
 def order_success(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
+    # we won't create a new page unless you want; keep existing flow
     return render(request, "home.html", {"order": order})
+
+
+# My Orders view (list)
+@login_required
+def my_order(request):
+    banner = Banner.objects.first()
+    orders = Order.objects.filter(user=request.user).order_by("-created_at")
+    return render(request, "my_order.html", {"banner": banner, "orders": orders})
+
+
+# Track Order view (detail + timeline)
+@login_required
+def track_order(request, order_id):
+    banner = Banner.objects.first()
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+
+    # Build timeline steps with labels and timestamps
+    timeline = [
+        {"key": "confirmed", "label": "Order confirmed", "time": order.confirmed_at},
+        {"key": "shipped", "label": "Shipped", "time": order.shipped_at},
+        {"key": "out_for_delivery", "label": "Out for delivery", "time": order.out_for_delivery_at},
+        {"key": "delivered", "label": "Delivered", "time": order.delivered_at},
+    ]
+
+    return render(request, "track_order.html", {"banner": banner, "order": order, "timeline": timeline})

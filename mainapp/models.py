@@ -1,5 +1,12 @@
 from django.db import models
 
+import random
+from django.utils import timezone
+
+def generate_order_number():
+    # human-friendly, random order id; you can adjust format if needed
+    return f"OD{random.randint(10000000, 99999999)}"
+
 class Banner(models.Model):
     image = models.ImageField(upload_to='banners/')
     
@@ -185,17 +192,28 @@ class CartItem(models.Model):
 
 class Order(models.Model):
     STATUS_CHOICES = [
-        ("pending", "Pending"),
+        ("confirmed", "Confirmed"),
         ("shipped", "Shipped"),
+        ("out_for_delivery", "Out for Delivery"),
         ("delivered", "Delivered"),
         ("cancelled", "Cancelled"),
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
-    status = models.CharField(
-        max_length=20, choices=STATUS_CHOICES, default="pending"
-    )
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="confirmed")
+
+    # Unique human-friendly order number
+    order_number = models.CharField(max_length=20, default=generate_order_number)
+
+    # timestamps for tracking steps (editable by admin)
+    confirmed_at = models.DateTimeField(null=True, blank=True)
+    shipped_at = models.DateTimeField(null=True, blank=True)
+    out_for_delivery_at = models.DateTimeField(null=True, blank=True)
+    delivered_at = models.DateTimeField(null=True, blank=True)
+
+    # editable expected delivery date (admin can change)
+    expected_delivery_date = models.DateField(null=True, blank=True)
 
     # Billing info
     name = models.CharField(max_length=200)
@@ -207,7 +225,7 @@ class Order(models.Model):
     total = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"Order #{self.id} by {self.user}"
+        return f"{self.order_number} - {self.user}"
 
 
 class OrderItem(models.Model):

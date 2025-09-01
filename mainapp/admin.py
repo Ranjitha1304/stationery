@@ -70,3 +70,28 @@ class FeaturedProductAdmin(admin.ModelAdmin):
 class BackToSchoolProductAdmin(admin.ModelAdmin):
     list_display = ('product', 'order')
     ordering = ('order',)
+
+
+
+# admin.py
+from django.contrib import admin
+from .models import Order, OrderItem
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ("order_number", "user", "status", "created_at", "expected_delivery_date")
+    list_filter = ("status", "created_at")
+    search_fields = ("order_number", "user__username", "name", "street_address")
+    readonly_fields = ("order_number", "created_at")
+    fields = (
+        "order_number", "user", "status", "created_at",
+        "confirmed_at", "shipped_at", "out_for_delivery_at", "delivered_at",
+        "expected_delivery_date",
+        "name", "street_address", "town_city", "postal_code",
+        "subtotal", "total"
+    )
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ("order", "product_name", "quantity", "total_price")
+    search_fields = ("product_name", "order__order_number")

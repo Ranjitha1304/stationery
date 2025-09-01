@@ -110,7 +110,11 @@
             {% endif %}
           </div>
 
-          <button class="btn-add" onclick="alert('Product added to cart');">Add to Cart</button>
+{% if user.is_authenticated %}
+  <a class="btn-add" href="{% url 'add_to_cart' p.id %}">Add to Cart</a>
+{% else %}
+  <button class="btn-add" onclick="openLogin(); alert('Please log in first');">Add to Cart</button>
+{% endif %}
         </div>
         {% empty %}
           <p>No products found.</p>

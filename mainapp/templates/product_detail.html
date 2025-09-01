@@ -71,14 +71,11 @@
   <!-- Actions -->
 <div class="pd-actions">
   {% if user.is_authenticated %}
-    <form method="POST" action="{% url 'add_to_cart' product.id %}">
-      {% csrf_token %}
-      <button type="submit" class="btn-outline">ADD TO CART</button>
-    </form>
+    <a class="btn-outline" href="{% url 'add_to_cart' product.id %}">ADD TO CART</a>
     <a href="{% url 'buy_now' product.id %}" class="btn-solid">BUY NOW</a>
   {% else %}
-    <button class="btn-outline" onclick="alert('Please log in first!')">ADD TO CART</button>
-    <a href="{% url 'login_view' %}" class="btn-solid">BUY NOW</a>
+    <button class="btn-outline" onclick="openLogin(); alert('Please log in first');">ADD TO CART</button>
+    <a href="#" class="btn-solid" onclick="openLogin(); alert('Please log in first');">BUY NOW</a>
   {% endif %}
 </div>
   

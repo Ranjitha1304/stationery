@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/my_order.css' %}">
+
+<div class="page-banner">
+  {% if banner %}<img src="{{ banner.image.url }}" alt="Banner">{% endif %}
+</div>
+
+<div class="orders-wrap">
+  <h2>Your Orders</h2>
+
+  {% if orders %}
+    {% for order in orders %}
+      <div class="order-card">
+        <div class="order-top">
+          <div class="order-id">Order Id: <strong>{{ order.order_number }}</strong></div>
+          <div class="order-date">{{ order.created_at|date:"d M Y" }}</div>
+        </div>
+
+        <div class="order-tracker">
+          <div class="tracker-left">
+            {% comment %} show timeline simplified: show confirmed/shipped/out_for_delivery/delivered status using timestamps {% endcomment %}
+            <div class="track-steps">
+              <div class="step {% if order.confirmed_at %}done{% endif %}">
+                <div class="circle">{% if order.confirmed_at %}✔{% else %}●{% endif %}</div>
+                <div class="label">Order confirmed</div>
+              </div>
+
+              <div class="step {% if order.shipped_at %}done{% endif %}">
+                <div class="circle">{% if order.shipped_at %}✔{% else %}●{% endif %}</div>
+                <div class="label">Shipped</div>
+              </div>
+
+              <div class="step {% if order.out_for_delivery_at %}done{% endif %}">
+                <div class="circle">{% if order.out_for_delivery_at %}✔{% else %}●{% endif %}</div>
+                <div class="label">Out for delivery</div>
+              </div>
+
+              <div class="step {% if order.delivered_at %}done{% endif %}">
+                <div class="circle">{% if order.delivered_at %}✔{% else %}●{% endif %}</div>
+                <div class="label">Delivery by: {{ order.expected_delivery_date }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tracker-right">
+            <h4>Your order</h4>
+            <div class="order-items">
+              {% for it in order.items.all %}
+                <div class="order-item">
+                  <div class="name">{{ it.product_name }}</div>
+                  <div class="meta">Qty: {{ it.quantity }} • Rs. {{ it.unit_price|floatformat:"-2" }}</div>
+                  <div class="price">Rs. {{ it.total_price|floatformat:"-2" }}</div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="order-summary">
+              <div>Subtotal: Rs. {{ order.subtotal|floatformat:"-2" }}</div>
+              <div><strong>Total: Rs. {{ order.total|floatformat:"-2" }}</strong></div>
+              <a href="{% url 'track_order' order.id %}" class="btn-track">Track Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No orders yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

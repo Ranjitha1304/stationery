@@ -1,0 +1,55 @@
+/* my_order.css */
+.orders-wrap {
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 0 16px;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.order-top {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom: 10px;
+}
+
+.order-tracker {
+  display:flex;
+  gap: 12px;
+}
+
+.tracker-left { flex: 1; }
+.tracker-right { flex: 1; }
+
+.track-steps .step {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:8px 0;
+}
+
+.track-steps .step .circle {
+  width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#d6dbe6;
+}
+
+.track-steps .step.done .circle {
+  background:#2fb34a; color:#fff;
+}
+
+.order-item { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #f1f1f1; }
+.order-summary { margin-top:8px; text-align:right; }
+
+.btn-track {
+  display:inline-block; margin-top:10px; padding:8px 14px; background:#007bff; color:#fff; text-decoration:none; border-radius:6px;
+}
+
+@media (max-width: 767px) {
+  .order-tracker { flex-direction: column; }
+  .tracker-left, .tracker-right { width:100%;}
+}
