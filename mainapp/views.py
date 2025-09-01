@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from .models import Banner, StationeryImage, RightSectionImage, TrendingImage, Testimonial
 from .models import TeamMember
+from .models import FeaturedProduct, BackToSchoolProduct
 
 def home(request):
     banner = Banner.objects.first()
@@ -10,6 +11,8 @@ def home(request):
     trending_images = TrendingImage.objects.all()[:6]       # only 6
     testimonial = Testimonial.objects.first()
     team_members = TeamMember.objects.all()
+    featured_products = FeaturedProduct.objects.select_related('product')[:3]
+    back_to_school_products = BackToSchoolProduct.objects.select_related('product')[:3]
 
     context = {
         'banner': banner,
@@ -18,6 +21,8 @@ def home(request):
         'trending_images': trending_images,
         'testimonial': testimonial,
         'team_members': team_members,
+        'featured_products': featured_products,
+        'back_to_school_products': back_to_school_products,
     }
     return render(request, 'home.html', context)
 
@@ -156,32 +161,85 @@ def contact(request):
 
 
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user:
-            login(request, user)
-            return redirect('home')  # home page after success
-    return render(request, 'login.html')
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+from .models import Cart  # adjust if your cart is in another app
+
+# Helper: cart item count
+def get_cart_count(request):
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        return cart.items.count()
+    return 0
+
+# ---------- SIGNUP ----------
 def signup_view(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        confirm_password = request.POST.get("confirm_password")
 
-        if password == confirm_password:
-            user = User.objects.create_user(username=name, email=email, password=password)
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return redirect("signup_view")
+
+        if User.objects.filter(username=name).exists():
+            messages.error(request, "User already exists. Please login.")
+            return redirect("signup_view")
+
+        user = User.objects.create_user(
+            username=name,
+            email=email,
+            password=password
+            
+        )
+        user.save()
+        messages.success(request, "Signup successful. Please login.")
+        return redirect("login_view")
+
+    return render(request, "signup.html", {
+        "cart_item_count": get_cart_count(request),
+        "banner": {"image": {"url": "/media/banner.jpg"}}
+    })
+
+
+
+
+
+
+
+# ---------- LOGIN ----------
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
             login(request, user)
-            return redirect('home')
-    return render(request, 'signup.html', {'banner': {"image": {"url": "/media/banner.jpg"}}})  # replace with admin upload
+            messages.success(request, f"Welcome back, {user.username}!")
+            return redirect("home")
+        else:
+            messages.error(request, "Invalid username or password.")
 
+    return redirect("home")  # Always go back to base (modal will show errors)
+
+
+# ---------- LOGOUT ----------
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out.")
+    return redirect("home")
 
 def my_order(request):
     return render(request, 'my_order.html')
@@ -204,7 +262,8 @@ def get_user_cart(user):
 
 
 # ---------------- CART ----------------
-@login_required
+
+@login_required(login_url="login_view")
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart = get_user_cart(request.user)
@@ -305,7 +364,8 @@ from django.http import JsonResponse
 from django.urls import reverse
 
 
-@login_required
+
+@login_required(login_url="login_view")
 def checkout(request):
     cart = Cart.objects.filter(user=request.user).first()
     items = cart.items.all() if cart else []

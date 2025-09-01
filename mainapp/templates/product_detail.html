@@ -69,9 +69,18 @@
   </div>
 
   <!-- Actions -->
-  <div class="pd-actions">
-    <button class="btn-outline" onclick="alert('Product added to cart');">ADD TO CART</button>
+<div class="pd-actions">
+  {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'add_to_cart' product.id %}">
+      {% csrf_token %}
+      <button type="submit" class="btn-outline">ADD TO CART</button>
+    </form>
     <a href="{% url 'buy_now' product.id %}" class="btn-solid">BUY NOW</a>
-  </div>
+  {% else %}
+    <button class="btn-outline" onclick="alert('Please log in first!')">ADD TO CART</button>
+    <a href="{% url 'login_view' %}" class="btn-solid">BUY NOW</a>
+  {% endif %}
+</div>
+  
 </div>
 {% endblock %}

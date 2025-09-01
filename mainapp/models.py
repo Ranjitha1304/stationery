@@ -222,3 +222,27 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.product_name} x {self.quantity} ({self.order})"
+
+
+
+from django.db import models
+
+class FeaturedProduct(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"Featured: {self.product.name}"
+
+class BackToSchoolProduct(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"Back to School: {self.product.name}"

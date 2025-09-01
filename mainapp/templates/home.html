@@ -3,6 +3,8 @@
 
 {% block content %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+
 
 <!-- Banner Section -->
 {% if banner %}
@@ -43,6 +45,51 @@
     </div>
 </section>
 
+
+
+
+<!-- Featured Product Section -->
+<section class="featured-section">
+    <h2>Featured Product</h2>
+    <div class="product-flex">
+        {% for fp in featured_products %}
+        {% with p=fp.product %}
+            <div class="p-card">
+                <a class="p-img-wrap" href="{% url 'product_detail' p.id %}">
+                    <img src="{{ p.image.url }}" alt="{{ p.name }}">
+                </a>
+
+                <div class="p-info">
+                    <h4 class="p-name">{{ p.name }}</h4>
+
+                    <div class="stars">
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.rating %}
+                                <span class="star filled">★</span>
+                            {% else %}
+                                <span class="star">☆</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="p-price">Rs. {{ p.price_single|floatformat:"-2" }}</div>
+
+                    {% if p.price_pack10 %}
+                        <div class="p-offer"><strong>Buy a pack of 10</strong> @ Rs. {{ p.price_pack10|floatformat:"-2" }}</div>
+                    {% elif p.price_3plus %}
+                        <div class="p-offer"><strong>Buy 3 or more</strong> @ Rs. {{ p.price_3plus|floatformat:"-2" }}</div>
+                    {% endif %}
+                </div>
+
+                <button class="btn-add" onclick="alert('Product added to cart');">Add to Cart</button>
+            </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+</section>
+
+
+
 <!-- Trending Section -->
 <section class="trending-section">
     <h2>Trending</h2>
@@ -70,6 +117,45 @@
 </section>
 
 
+<!-- Back to School Section -->
+<section class="school-section">
+    <h2>Back to School</h2>
+    <div class="product-flex">
+        {% for bsp in back_to_school_products %}
+        {% with p=bsp.product %}
+            <div class="p-card">
+                <a class="p-img-wrap" href="{% url 'product_detail' p.id %}">
+                    <img src="{{ p.image.url }}" alt="{{ p.name }}">
+                </a>
+
+                <div class="p-info">
+                    <h4 class="p-name">{{ p.name }}</h4>
+
+                    <div class="stars">
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.rating %}
+                                <span class="star filled">★</span>
+                            {% else %}
+                                <span class="star">☆</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="p-price">Rs. {{ p.price_single|floatformat:"-2" }}</div>
+
+                    {% if p.price_pack10 %}
+                        <div class="p-offer"><strong>Buy a pack of 10</strong> @ Rs. {{ p.price_pack10|floatformat:"-2" }}</div>
+                    {% elif p.price_3plus %}
+                        <div class="p-offer"><strong>Buy 3 or more</strong> @ Rs. {{ p.price_3plus|floatformat:"-2" }}</div>
+                    {% endif %}
+                </div>
+
+                <button class="btn-add" onclick="alert('Product added to cart');">Add to Cart</button>
+            </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+</section>
 
 
 <!-- TEAM SECTION -->

@@ -16,21 +16,45 @@
       <a href="{% url 'home' %}" class="brand">Supplyhive</a>
     </div>
 
-    <nav class="nav-center">
-      <ul class="nav-links">
-        <li><a href="{% url 'home' %}" class="active">Home</a></li>
-        <li><a href="{% url 'shop' %}">Shop</a></li>
-        <li><a href="{% url 'about' %}">About us</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
-        <li><a href="#" onclick="openLogin()">Login/Register</a></li>
-      </ul>
-    </nav>
+<nav class="nav-center">
+  <ul class="nav-links">
+    <li>
+      <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'shop' %}" class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}">
+        Shop
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+        About us
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+        Contact
+      </a>
+    </li>
+    
+    {% if user.is_authenticated %}
+      <!-- Show Logout if logged in -->
+      <li><a href="{% url 'logout_view' %}">Logout</a></li>
+    {% else %}
+      <!-- Show Login/Register if not logged in -->
+      <li><a href="#" onclick="openLogin()">Login/Register</a></li>
+    {% endif %}
+
+  </ul>
+</nav>
 
     <div class="nav-right">
       <div class="search-box">
 <form method="get" action="{% url 'shop' %}" id="searchForm">
   <input type="text" name="q" placeholder="Search for Stationery" value="{{ request.GET.q|default:'' }}">
-  <button type="submit"><i class='bx bx-search'></i></button>
+  <i class='bx bx-search'></i>
 </form>
       </div>
       <a href="{% url 'cart_view' %}" class="icon"><i class='bx bx-cart'></i></a>
@@ -59,7 +83,18 @@
     <h2>Signin</h2>
     <p class="create-account"><a href="{% url 'signup_view' %}">Create an Account</a></p>
 
-    <form method="POST">
+    <!-- Messages -->
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <p class="{% if message.tags %}{{ message.tags }}{% endif %}">
+            {{ message }}
+          </p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login_view' %}">
       {% csrf_token %}
       <label for="username">User name</label>
       <input type="text" id="username" name="username" placeholder="User name" required>
@@ -71,10 +106,6 @@
     </form>
   </div>
 </div>
-
-
-
-
 
 
   {% block content %}{% endblock %}

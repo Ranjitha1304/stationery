@@ -57,3 +57,16 @@ from .models import ContactPage
 @admin.register(ContactPage)
 class ContactPageAdmin(admin.ModelAdmin):
     list_display = ("id", "banner_top", "banner_bottom")
+
+
+from .models import FeaturedProduct, BackToSchoolProduct
+
+@admin.register(FeaturedProduct)
+class FeaturedProductAdmin(admin.ModelAdmin):
+    list_display = ('product', 'order')
+    ordering = ('order',)
+
+@admin.register(BackToSchoolProduct)
+class BackToSchoolProductAdmin(admin.ModelAdmin):
+    list_display = ('product', 'order')
+    ordering = ('order',)

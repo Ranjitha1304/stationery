@@ -60,6 +60,16 @@ margin-top: 20px;
     border-radius: 10px;
 }
 
+.featured-section,.school-section {
+text-align: center;
+width: 80%;
+margin: auto;
+}
+
+.featured-section h2,.school-section h2 {
+    margin-bottom: 40px;
+}
+
 .trending-section {
     text-align: center;
     padding: 40px 20px;
